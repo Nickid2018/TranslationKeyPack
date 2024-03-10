@@ -41,6 +41,12 @@ public class MinecraftDataReader implements AutoCloseable {
         if (key.startsWith("translation.test.invalid"))
             return value;
 
+        try {
+            String.format(value);
+            return key;
+        } catch (Exception ignored) {
+        }
+
         List<Object> testArguments = new ArrayList<>();
         List<Object> testedArguments = new ArrayList<>();
 
